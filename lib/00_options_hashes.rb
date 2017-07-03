@@ -17,3 +17,26 @@
 # transmogrify("hello", options)
 # # options shouldn't change.
 # ```
+def transmogrify(input, options = {})
+    result = input
+    defaults = {
+      :times => 3,
+      :upcase => true,
+      :reverse => true
+    }
+    defaults.merge(options)
+
+    if options[:times]
+      result = result * defaults[:times]
+    end
+
+    if options[:upcase]
+      result = result.upcase
+    end
+
+    if options[:reverse]
+      result = result.reverse
+    end
+    
+    result
+end
